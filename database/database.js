@@ -53,7 +53,18 @@ let updateSalary= async ()=>{
     let responce= await collection.updateMany({"salary":{$gt:"35000"}},{$set:{"salary":"30000"}})
     console.log(responce)
 }
-updateSalary()
+// updateSalary()
+
+// Delete all the documents from ""employee"" where last company is Y"
+
+let deleteY= async ()=>{
+    let result=await client.connect()
+    let db=result.db("Human_Resource")
+    let collection=db.collection("employee")
+    let responce= await collection.deleteMany({"lastCompany":"Z"})
+    console.log(responce)
+}
+deleteY()
 
 
 
@@ -63,7 +74,6 @@ updateSalary()
 Create a database , give it name like ""Human_Resource"". Create a collection inside this named ""employee""
 
 
-Delete all the documents from ""employee"" where last company is Y"
 
 */
 
